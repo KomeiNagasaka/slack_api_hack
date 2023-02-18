@@ -11,7 +11,7 @@ https://2023-y1v4054.slack.com/archives/Cxxxxxxxxxx
 「Cxxxxxxxxxx」の部分がchannnelのidentifier
 
 スレッドの指定
-https://2023-y1v4054.slack.com/archives/C04QRK2PUDN/p1234567890123456
+https://2023-y1v4054.slack.com/archives/Cxxxxxxxxxx/p1234567890123456
 「1234567890123456」の部分を「1234567890.123456」のように(10文字).(6文字)と分けたものがtsのidentifier
 
 それぞれのurlはslckから取得可能。
