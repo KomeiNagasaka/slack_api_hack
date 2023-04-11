@@ -3,6 +3,10 @@ import datetime
 import os
 import shutil
 
+# スクリプトファイルのあるディレクトリをカレントディレクトリにする
+script_dir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(script_dir)
+
 # Bot User OAuth Token を指定
 SLACK_ACCESS_TOKEN = "xxxx-0000000000000-1111111111111-AAAA1111bbbb2222CCCC3333"
 
@@ -58,7 +62,7 @@ def GetChannelThreads(token, channel_id):
     # 出力するメッセージデータのリスト
     writeTextList = []
     # ダウンロードしたファイルの一時保管場所
-    tmp_folder = os.path.join("tmp", "tmp_{}".format(channel_id))
+    tmp_folder = os.path.join("tmp_for_files", "tmp_{}".format(channel_id))
     os.makedirs(tmp_folder)
 
     # チャンネルへ正常にアクセスできている場合の処理
@@ -124,3 +128,5 @@ for channel_name, channel_id in GetChannelsInfo(SLACK_ACCESS_TOKEN):
         obj = map(lambda x: x + "\n", message_list)
         with open(os.path.join(channel_folder_path, "message.txt"), "a", encoding="utf-8", newline="\n") as f:
             f.writelines(obj)
+
+os.rmdir("tmp_for_files")
