@@ -68,7 +68,7 @@ def GetChannelThreads(token, channel_id):
         for messages in ThreadList:
             # スレッドのIDを取得
             THREAD_NUMBER = messages["ts"]  # tsはスレッドの識別子。
-            dt = datetime.datetime.fromtimestamp(float(token))
+            dt = datetime.datetime.fromtimestamp(float(THREAD_NUMBER))
 
             # スレッドのメッセージとリプライを取得
             payload = {
