@@ -20,8 +20,7 @@ def MakeHeader(token):
 def GetChannelsInfo(token):
     ChanReadURL = "https://slack.com/api/conversations.list"
     ChanReadRes = requests.get(ChanReadURL, headers=MakeHeader(token))
-    channel_data = ChanReadRes.json()
-    channel_list = channel_data["channels"]
+    channel_list = ChanReadRes.json()["channels"]
 
     ChannelIdNameList = []
     for channel in channel_list:
