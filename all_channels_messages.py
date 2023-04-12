@@ -7,9 +7,6 @@ import shutil
 script_dir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(script_dir)
 
-# Bot User OAuth Token を指定
-SLACK_ACCESS_TOKEN = "xxxx-0000000000000-1111111111111-AAAA1111bbbb2222CCCC3333"
-
 
 # APIから情報をもらうために必要なheaderを作る関数
 def MakeHeader(token):
@@ -110,14 +107,17 @@ def GetChannelThreads(token, channel_id):
 
 
 # 実際の処理
+#tokenを読み込み。事前にアクセスに必要なトークンを環境変数として設定してください。
+token = os.environ["SLACK_ACCESS_TOKEN"]
+
 # 出力先のフォルダを作成
 now = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
 out_folder_path = MkDir("out", now)
 
 
-for channel_name, channel_id in GetChannelsInfo(SLACK_ACCESS_TOKEN):
+for channel_name, channel_id in GetChannelsInfo(token):
     message_list, tmp_folder = GetChannelThreads(
-        SLACK_ACCESS_TOKEN, channel_id)
+        token, channel_id)
     channel_folder_path = MkDir(out_folder_path, channel_name)
 
     # 一時保管フォルダの中身を移動

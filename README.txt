@@ -5,18 +5,10 @@
 ④slackの対象のチャンネルに、作成したappを追加する。
 ⑤pythonでapiのmethods(conversations.historyとconversations.replies)を使ってデータを抽出する
 
-
-＜identifier＞
-チャンネルの指定
-https://2023-y1v4054.slack.com/archives/Cxxxxxxxxxx
-「Cxxxxxxxxxx」の部分がchannnelのidentifier
-
-スレッドの指定
-https://2023-y1v4054.slack.com/archives/Cxxxxxxxxxx/p1234567890123456
-「1234567890123456」の部分を「1234567890.123456」のように(10文字).(6文字)と分けたものがtsのidentifier
-
-※それぞれのurlはweb版slackから取得可能。
-
+＜tokenの設定＞
+slackAPIのページでtokenが発行されたら、環境変数として設定してください。
+変数名はSLACK_ACCESS_TOKENです。複数のワークスペースで使用したい場合は、スクリプトの変更が必要です。
+（そのうち改善します。）
 
 ＜必要なscope＞
 Bot Tiken Scopesの
